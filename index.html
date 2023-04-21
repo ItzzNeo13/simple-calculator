@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Importing fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <title>Basic Calculator</title>
+    <link rel="shortcut icon" type="image/x-icon" href="./favicon.ico">
+</head>
+<body>
+    <h1 id="title">Simple Calculator</h1>
+    <div class="calculator">
+        <input type="text" id="result" readonly> <!-- Readonly attribute makes blocks the input from taking data from keys and just takes data from the buttons pressed from the calculator's keypad-->
+        <div class="button-row">
+            <button onclick="clearScreen()">C</button>
+            <button onclick="addToScreen('/')">/</button>
+            <button onclick="addToScreen('*')">*</button>
+            <button onclick="addToScreen('-')">-</button>
+        </div>
+        <div class="button-row">
+            <button onclick="addToScreen('7')">7</button>
+            <button onclick="addToScreen('8')">8</button>
+            <button onclick="addToScreen('9')">9</button>
+            <button onclick="addToScreen('+')">+</button>
+        </div>
+        <div class="button-row">
+            <button onclick="addToScreen('4')">4</button>
+            <button onclick="addToScreen('5')">5</button>
+            <button onclick="addToScreen('6')">6</button>
+            <button onclick="calculate()">=</button>
+        </div>
+        <div class="button-row">
+            <button onclick="addToScreen('1')">1</button>
+            <button onclick="addToScreen('2')">2</button>
+            <button onclick="addToScreen('3')">3</button>
+            <button onclick="addToScreen('.')">.</button>
+        </div>
+        <div class="button-row">
+            <button class="middle-button" onclick="addToScreen('0')">0</button>
+        </div>
+    </div>
+    <div>
+        <div class="txt">Source code link <a href="https://github.com/ItzzNeo13/simple-calculator" target="_blank">here</a></div>
+    </div>
+    <script>
+        // Adding numbers to the input:
+        function addToScreen(value) {
+            document.getElementById('result').value += value;
+        }
+        // Clearing the input
+        function clearScreen() {
+            document.getElementById('result').value = '';
+        }
+        // Calculating...
+        function calculate() {
+            var result = eval(document.getElementById('result').value);
+            document.getElementById('result').value = result;
+        }
+    </script>
+</body>
+</html>
